@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+        /* Light mode - clean white/silver background */
+        --background: 0.98 0.01 240;
+        --foreground: 0.20 0.02 260;
+        --card: 1 0 0;
+        --card-foreground: 0.20 0.02 260;
+        --popover: 1 0 0;
+        --popover-foreground: 0.20 0.02 260;
+        /* Primary: Blue from logo (#4A90E2 area) */
+        --primary: 0.62 0.15 240;
+        --primary-foreground: 1 0 0;
+        /* Secondary: Violet from logo (#8E44AD area) */
+        --secondary: 0.50 0.18 290;
+        --secondary-foreground: 1 0 0;
+        --muted: 0.96 0.01 240;
+        --muted-foreground: 0.55 0.02 260;
+        /* Accent: Silver/light blue tone */
+        --accent: 0.88 0.03 240;
+        --accent-foreground: 0.25 0.02 260;
+        --destructive: 0.58 0.24 25;
+        --destructive-foreground: 1 0 0;
+        --border: 0.90 0.02 240;
+        --input: 0.90 0.02 240;
+        --ring: 0.62 0.15 240;
+        /* Chart colors using blue-violet gradient */
+        --chart-1: 0.62 0.15 240;
+        --chart-2: 0.55 0.18 270;
+        --chart-3: 0.50 0.18 290;
+        --chart-4: 0.65 0.12 220;
+        --chart-5: 0.70 0.10 200;
+        --sidebar: 0.98 0.01 240;
+        --sidebar-foreground: 0.20 0.02 260;
+        --sidebar-primary: 0.62 0.15 240;
+        --sidebar-primary-foreground: 1 0 0;
+        --sidebar-accent: 0.96 0.01 240;
+        --sidebar-accent-foreground: 0.20 0.02 260;
+        --sidebar-border: 0.90 0.02 240;
+        --sidebar-ring: 0.62 0.15 240;
+    }
+
+    .dark {
+        /* Dark mode - deep blue-black background */
+        --background: 0.12 0.03 260;
+        --foreground: 0.96 0.01 240;
+        --card: 0.18 0.03 260;
+        --card-foreground: 0.96 0.01 240;
+        --popover: 0.16 0.03 260;
+        --popover-foreground: 0.96 0.01 240;
+        /* Primary: Brighter blue for dark mode */
+        --primary: 0.68 0.18 240;
+        --primary-foreground: 0.98 0 0;
+        /* Secondary: Brighter violet for dark mode */
+        --secondary: 0.58 0.20 290;
+        --secondary-foreground: 0.98 0 0;
+        --muted: 0.22 0.03 260;
+        --muted-foreground: 0.65 0.02 240;
+        --accent: 0.28 0.04 260;
+        --accent-foreground: 0.96 0.01 240;
+        --destructive: 0.60 0.22 25;
+        --destructive-foreground: 0.98 0 0;
+        --border: 0.28 0.03 260;
+        --input: 0.28 0.03 260;
+        --ring: 0.68 0.18 240;
+        /* Chart colors for dark mode */
+        --chart-1: 0.68 0.18 240;
+        --chart-2: 0.60 0.20 270;
+        --chart-3: 0.58 0.20 290;
+        --chart-4: 0.70 0.15 220;
+        --chart-5: 0.75 0.12 200;
+        --sidebar: 0.18 0.03 260;
+        --sidebar-foreground: 0.96 0.01 240;
+        --sidebar-primary: 0.68 0.18 240;
+        --sidebar-primary-foreground: 0.98 0 0;
+        --sidebar-accent: 0.22 0.03 260;
+        --sidebar-accent-foreground: 0.96 0.01 240;
+        --sidebar-border: 0.28 0.03 260;
+        --sidebar-ring: 0.68 0.18 240;
+    }
+
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+/* Gradient utilities matching dimi logo */
+.gradient-dimi {
+    background: linear-gradient(135deg, oklch(0.62 0.15 240) 0%, oklch(0.55 0.18 270) 50%, oklch(0.50 0.18 290) 100%);
+}
+
+.gradient-dimi-silver {
+    background: linear-gradient(135deg, oklch(0.75 0.05 240) 0%, oklch(0.65 0.12 260) 50%, oklch(0.55 0.18 280) 100%);
+}
+

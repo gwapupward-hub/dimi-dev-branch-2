@@ -51,57 +51,65 @@ A creator-protection module for timestamped proof of authorship:
 ## Tech Stack
 
 **Frontend**
-- React Native / Expo
-- TypeScript
+- React + TypeScript
+- Vite (Build tooling)
+- Tailwind CSS + shadcn/ui components
+- React Router (Navigation)
 - Web Audio API
-- Custom DSP utilities
+- Custom DSP utilities with Audio Worklets
 
 **Backend**
-- Node.js
-- Fastify / Express
-- PostgreSQL
-- S3 or Supabase Blob Storage
-- JWT auth
+- Motoko (Internet Computer smart contracts)
+- Internet Computer Protocol (ICP)
+- Custom blob storage modules for large files
+- Internet Identity authentication
 
 **Audio Processing**
 - Web Audio API
 - OfflineAudioContext rendering
+- Audio Worklets for real-time processing
 - Dynamic buffer slicing + comping
+- Custom effects chain (reverb, EQ, compression)
+- Pitch detection (CREPE algorithm)
+- Multi-stem management
 
 ---
 
-## Suggested Project Structure
+## Project Structure
 
 ```
 dimi/
 │
-├── app/
-│   ├── components/
-│   ├── screens/
-│   ├── hooks/
-│   ├── audio/
-│   │   ├── engine/
-│   │   ├── recorder/
-│   │   ├── dsp/
-│   │   └── comping/
-│   ├── context/
-│   └── utils/
+├── frontend/
+│   ├── src/
+│   │   ├── components/     # React components
+│   │   │   └── ui/         # shadcn/ui components
+│   │   ├── pages/          # Page components
+│   │   ├── hooks/          # Custom React hooks
+│   │   ├── lib/            # Utility libraries
+│   │   │   └── audioEngine/  # Audio processing
+│   │   ├── main.tsx        # App entry point
+│   │   └── App.tsx         # Root component
+│   ├── index.html
+│   └── tailwind.config.js
 │
 ├── backend/
-│   ├── src/
-│   │   ├── routes/
-│   │   ├── services/
-│   │   ├── controllers/
-│   │   ├── middleware/
-│   │   └── db/
-│   └── tests/
+│   ├── main.mo                # Main canister
+│   ├── authorization/         # Access control
+│   │   └── access-control.mo
+│   ├── blob-storage/          # File storage modules
+│   │   ├── Storage.mo
+│   │   └── Mixin.mo
+│   └── invite-links/          # Invite system
+│       └── invite-links-module.mo
 │
 ├── docs/
-│   ├── spec.md
-│   ├── api.md
-│   ├── audio-engine.md
-│   └── future-roadmap.md
+│   └── spec.md
 │
+├── dfx.json              # ICP configuration
+├── package.json
+├── vite.config.ts
+├── tsconfig.json
 └── README.md
 ```
 
@@ -109,21 +117,38 @@ dimi/
 
 ## Setup Instructions
 
+### Prerequisites
+- Node.js (v18 or higher)
+- DFX (Internet Computer SDK)
+
 ### 1. Install Dependencies
-```
+```bash
 npm install
 ```
 
-### 2. Start Mobile App
-```
-npx expo start
+### 2. Start Local Internet Computer Replica
+```bash
+dfx start --background
 ```
 
-### 3. Start Backend
+### 3. Deploy Canisters Locally
+```bash
+dfx deploy
 ```
-cd backend
-npm install
+
+### 4. Start Development Server
+```bash
 npm run dev
+```
+
+### 5. Build for Production
+```bash
+npm run build
+```
+
+### 6. Deploy to Internet Computer Mainnet
+```bash
+npm run deploy:ic
 ```
 
 ---
